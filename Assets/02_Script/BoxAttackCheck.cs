@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class BoxAttackCheck : MonoBehaviour
 {
+    [SerializeField] private GameObject explosionPrefab;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
         {
-            // 스케일 값 조절하기
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, 0.9f);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
     }
 }

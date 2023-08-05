@@ -8,35 +8,40 @@ public class PlayerMovement : MonoBehaviour
 
     private int count = 0;
 
+    private PlayerFire playerFire;
+
+    private void Start()
+    {
+        playerFire = GetComponent<PlayerFire>();
+    }
     private void Update()
     {
         transform.position += Vector3.right * speed * Time.deltaTime;
 
         if (transform.position.x >= 11)
         {
-            Debug.Log("11됨");
+            playerFire.bulletCount = 3;
             count++;
             transform.position = new Vector2(-11, transform.position.y);
             switch (count)
             {
                 case 2:
-                    transform.position = new Vector2(-11, 3);
+                    transform.position = new Vector2(-11, 2f);
                     break;
                 case 4:
-                    transform.position = new Vector2(-11, 1.5f);
-                    break;
-                case 6:
                     transform.position = new Vector2(-11, 0f);
                     break;
+                case 6:
+                    transform.position = new Vector2(-11, -2f);
+                    break;
                 case 8:
-                    transform.position = new Vector2(-11, -1.5f);
+                    transform.position = new Vector2(-11, -4f);
                     break;
-                case 10:
-                    transform.position = new Vector2(-11, -3);
+                case 9:
+                    Time.timeScale = 0;
+                    Debug.Log("----------------Clear----------------");
                     break;
-                case 12:
-                    transform.position = new Vector2(-11, -4.5f);
-                    break;
+
             }
         }
     }
@@ -46,8 +51,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Box"))
         {
             // 애니메이터 작용
-            // 시간 정지
-            Destroy(gameObject);
+            Time.timeScale = 0;
+            //Destroy(gameObject);
             Debug.Log("---------------Game Over---------------");
         }
     }

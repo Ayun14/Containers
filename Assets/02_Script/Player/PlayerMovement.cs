@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 3f;
+    [SerializeField] private float speed = 5.5f;
+    [SerializeField] private GameObject explosionPrefab;
 
     private int count = 0;
 
@@ -38,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
                     transform.position = new Vector2(-11, -4f);
                     break;
                 case 9:
-                    Time.timeScale = 0;
+                    SceneManager.LoadScene(2);
                     Debug.Log("----------------Clear----------------");
                     break;
 
@@ -50,9 +52,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Box"))
         {
-            // 애니메이터 작용
-            Time.timeScale = 0;
-            //Destroy(gameObject);
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, 1f);
+
+            Destroy(gameObject);
             Debug.Log("---------------Game Over---------------");
         }
     }

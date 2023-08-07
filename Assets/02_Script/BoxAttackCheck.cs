@@ -12,6 +12,7 @@ public class BoxAttackCheck : MonoBehaviour
         {
             GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(explosion, 0.9f);
+
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

@@ -22,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (transform.position.x >= 11)
         {
-            playerFire.bulletCount = 3;
+            GameManager.Instance.bulletCount = 3;
+            GameManager.Instance.BulletTextUpdate();
             count++;
             transform.position = new Vector2(-11, transform.position.y);
             switch (count)

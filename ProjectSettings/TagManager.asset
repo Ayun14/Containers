@@ -3,10 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Box
-  - Bullet
-  - Floor
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -14,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
-  - Obstacle
+  - 
+  - 
   - 
   - 
   - 
@@ -43,22 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 1586291695
-    locked: 0
-  - name: Ground
-    uniqueID: 4197706627
-    locked: 0
-  - name: Collider
-    uniqueID: 3498998435
-    locked: 0
-  - name: obstacle
-    uniqueID: 2947798627
-    locked: 0
-  - name: Player
-    uniqueID: 770767811
-    locked: 0
-  - name: Boss
-    uniqueID: 3509156815
     locked: 0

@@ -32,8 +32,8 @@ public class BoxAttackCheck : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            //GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            //Destroy(explosion, 0.8f);
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, 0.8f);
 
             StartCoroutine(ShowProcess());
 

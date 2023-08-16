@@ -62,6 +62,7 @@
     <Compile Include="Assets\02_Script\GameManager.cs" />
     <Compile Include="Assets\02_Script\Player\PlayerMovement.cs" />
     <Compile Include="Assets\02_Script\BoxAttackCheck.cs" />
+    <Compile Include="Assets\02_Script\RandomSpawn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -10,15 +10,26 @@ public class BoxAttackCheck : MonoBehaviour
     [SerializeField] private float dissolveTime = 1.7f;
 
     private SpriteRenderer spriteRenderer;
+    private RandomSpawn randomSpawn;
 
     private int dissolveAmount = Shader.PropertyToID("_DissolveAmount");
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        randomSpawn = FindObjectOfType<RandomSpawn>();
     }
 
-    private IEnumerator ShowProcess()
+    private void Update()
+    {
+        if (transform.position.y >= 4)
+        {
+            randomSpawn.StartBoxSpawn();
+            Destroy(gameObject);
+        }
+    }
+
+private IEnumerator ShowProcess()
     {
         Material mat = spriteRenderer.material;
 
